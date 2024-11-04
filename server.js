@@ -48,18 +48,12 @@ const generateQRCode = async (data) => {
     console.log(`QR Code saved to ${qrFilePath}`);
 };
 
-const startServer = async () => {
-    try {
-        app.listen(port, () => {
-            console.log(`Server is running on http://localhost:${port}`);
-        });
-
-        const qrData = 'https://appfood-kukps-store.vercel.app/';
-
-        await generateQRCode(qrData); 
-    } catch (error) {
-        console.error('Error starting the server or generating QR Code:', error);
-    }
-};
-
-startServer();
+app.listen(port, async () => {
+  console.log(`Server is running on http://localhost:${port}`);
+  const qrData = 'https://appfood-kukps-store.vercel.app/';
+  try {
+      await generateQRCode(qrData); 
+  } catch (error) {
+      console.error('Error starting the server or generating QR Code:', error);
+  }
+});
