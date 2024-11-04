@@ -12,9 +12,4 @@
       "dest": "server.js"
     }
   ],
-  "functions": {
-    "api/*.js": {
-      "runtime": "nodejs14.x"
-    }
-  }
 }
